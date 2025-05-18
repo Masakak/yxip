@@ -16,6 +16,7 @@ if os.path.exists('ip.txt'):
     os.remove('ip.txt')
 
 # 创建一个文件来存储IP地址
+node_num = 1  # 初始化节点编号
 with open('ip.txt', 'w') as file:
     for url in urls:
         # 发送HTTP请求获取网页内容
@@ -39,6 +40,7 @@ with open('ip.txt', 'w') as file:
             
             # 如果找到IP地址,则写入文件
             for ip in ip_matches:
-                file.write(ip + '\n')
+                file.write(f"{ip}#美国节点{node_num}\n")
+                node_num += 1  # 节点编号递增
 
 print('IP地址已保存到ip.txt文件中。')
