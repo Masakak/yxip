@@ -17,7 +17,7 @@ if os.path.exists('ip.txt'):
 
 # 创建一个文件来存储IP地址
 node_num = 1  # 初始化节点编号
-with open('ip.txt', 'w') as file:
+with open('ip.txt', 'w', encoding='utf-8') as file:  # 指定UTF-8编码
     for url in urls:
         # 发送HTTP请求获取网页内容
         response = requests.get(url)
