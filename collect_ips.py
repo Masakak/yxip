@@ -15,6 +15,9 @@ ip_pattern = r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}'
 if os.path.exists('ip.txt'):
     os.remove('ip.txt')
 
+# 创建计数器变量
+node_counter = 1
+
 # 创建一个文件来存储IP地址
 with open('ip.txt', 'w') as file:
     for url in urls:
@@ -37,8 +40,9 @@ with open('ip.txt', 'w') as file:
             element_text = element.get_text()
             ip_matches = re.findall(ip_pattern, element_text)
             
-            # 如果找到IP地址,则写入文件
+            # 如果找到IP地址,则写入文件并添加节点编号
             for ip in ip_matches:
-                file.write(ip + '\n')
+                file.write(f'{ip}#美国节点{node_counter}\n')
+                node_counter += 1
 
 print('IP地址已保存到ip.txt文件中。')
