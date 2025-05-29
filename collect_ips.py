@@ -18,8 +18,8 @@ if os.path.exists('ip.txt'):
 # 创建计数器变量
 node_counter = 1
 
-# 创建一个文件来存储IP地址
-with open('ip.txt', 'w') as file:
+# 创建一个文件来存储IP地址，使用UTF-8编码
+with open('ip.txt', 'w', encoding='utf-8') as file:
     for url in urls:
         # 发送HTTP请求获取网页内容
         response = requests.get(url)
